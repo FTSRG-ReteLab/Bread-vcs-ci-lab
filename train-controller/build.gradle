@@ -1,3 +1,7 @@
+apply plugin: 'java'
+
+
 dependencies {
     compile project(':train-interfaces')
+    testCompile 'junit:junit:4.12'
 }
