@@ -12,7 +12,7 @@ public class TrainControllerImpl implements TrainController {
 	private int speedLimit = 10;
 	private int reverseSpeedLimit = 0;
 
-	private Tachograph tachograph;
+	private Tachograph tachograph = new Tachograph();
 
 	@Override
 	public void followSpeed() {

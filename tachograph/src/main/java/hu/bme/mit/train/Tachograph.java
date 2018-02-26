@@ -7,7 +7,7 @@ public class Tachograph {
     public HashBasedTable<String, String, String> tab;
 
     public Tachograph() {
-        tab.create();
+        tab = tab.create();
     }
 
     public void addToTable(String date, String pos, String ref) {
