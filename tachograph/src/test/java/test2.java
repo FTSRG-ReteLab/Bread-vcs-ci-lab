@@ -1,8 +1,8 @@
-import hu.bme.mit.train.Tachograph;
 import org.junit.Test;
 
+import hu.bme.mit.train.Tachograph;
+
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 
 public class test2 {
@@ -11,6 +11,6 @@ public class test2 {
     public void TestTachograph(){
         Tachograph tachograph = new Tachograph();
         tachograph.addToTable("elem","elem", "elem");
-        assertFalse(tachograph.tab.isEmpty());
+        assertFalse(tachograph.getTab().isEmpty());
     }
 }
