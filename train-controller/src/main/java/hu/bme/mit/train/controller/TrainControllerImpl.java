@@ -59,6 +59,7 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.stepperChange = joystickPosition;
+		followSpeed();
 		tachograph.addToTable(Calendar.getInstance().getTime().toString(),
 				String.valueOf(joystickPosition),
 				String.valueOf(referenceSpeed));
