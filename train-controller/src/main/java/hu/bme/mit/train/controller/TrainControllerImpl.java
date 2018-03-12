@@ -1,9 +1,11 @@
 package hu.bme.mit.train.controller;
 
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import hu.bme.mit.train.Tachograph;
 import hu.bme.mit.train.interfaces.TrainController;
-
-import java.util.Calendar;
 
 public class TrainControllerImpl implements TrainController {
 
@@ -11,6 +13,8 @@ public class TrainControllerImpl implements TrainController {
 	private int referenceSpeed = 0;
 	private int speedLimit = 10;
 	private int reverseSpeedLimit = 0;
+
+	private Timer timer = new Timer();
 
 	private Tachograph tachograph = new Tachograph();
 
@@ -62,6 +66,13 @@ public class TrainControllerImpl implements TrainController {
 		tachograph.addToTable(Calendar.getInstance().getTime().toString(),
 				String.valueOf(joystickPosition),
 				String.valueOf(referenceSpeed));
+
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				referenceSpeed += stepperChange;
+			}
+		}, 1000);
 	}
 
 }
