@@ -67,7 +67,8 @@ public class TrainControllerImpl implements TrainController {
 				String.valueOf(joystickPosition),
 				String.valueOf(referenceSpeed));
 
-		timer.schedule(new TimerTask() {
+		timer.schedule(new TimerTask()
+		{
 			@Override
 			public void run() {
 				referenceSpeed += stepperChange;
