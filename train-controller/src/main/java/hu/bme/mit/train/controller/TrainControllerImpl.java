@@ -10,8 +10,11 @@ import hu.bme.mit.train.interfaces.TrainController;
 public class TrainControllerImpl implements TrainController {
 
 	private int stepperChange = 0;
+
 	private int referenceSpeed = 0;
+
 	private int speedLimit = 10;
+
 	private int reverseSpeedLimit = 0;
 
 	private Timer timer = new Timer();
@@ -23,7 +26,7 @@ public class TrainControllerImpl implements TrainController {
 		if (referenceSpeed < reverseSpeedLimit) {
 			referenceSpeed = reverseSpeedLimit;
 		} else {
-			if(referenceSpeed+stepperChange > reverseSpeedLimit) {
+			if (referenceSpeed + stepperChange > reverseSpeedLimit) {
 				referenceSpeed += stepperChange;
 			} else {
 				referenceSpeed = reverseSpeedLimit;
@@ -55,7 +58,7 @@ public class TrainControllerImpl implements TrainController {
 	private void enforceSpeedLimit() {
 		if (referenceSpeed > speedLimit) {
 			referenceSpeed = speedLimit;
-		} else if (referenceSpeed < reverseSpeedLimit){
+		} else if (referenceSpeed < reverseSpeedLimit) {
 			referenceSpeed = reverseSpeedLimit;
 		}
 	}
@@ -67,8 +70,7 @@ public class TrainControllerImpl implements TrainController {
 				String.valueOf(joystickPosition),
 				String.valueOf(referenceSpeed));
 
-		timer.schedule(new TimerTask()
-		{
+		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				referenceSpeed += stepperChange;
